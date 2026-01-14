@@ -8,7 +8,7 @@ Executar automacoes Ansible isoladas em container, usando playbooks montados do 
 - Container: `ansible` (quando persistente)
 - Playbooks no host: `C:\Users\danie\OneDrive\Documentos\Projetos\MeuLabN8N\Ansible`
 - Playbooks no container: `/ansible`
-- Build a partir de: `C:\Users\danie\OneDrive\Documentos\Projetos\Container Images\Ansible Core`
+- Build a partir de: `C:\Users\danie\OneDrive\Documentos\Projetos\MeuLabN8N\container_images\ansible_core`
 
 ### Integracao n8n -> Ansible (conceitual, sem dominio externo)
 - O n8n dispara o Ansible chamando `podman exec` no host.
@@ -25,8 +25,8 @@ Executar automacoes Ansible isoladas em container, usando playbooks montados do 
 ### 4.1) Build da imagem
 ```powershell
 podman build -t ansible-core `
-  -f "C:\Users\danie\OneDrive\Documentos\Projetos\Container Images\Ansible Core\Containerfile" `
-  "C:\Users\danie\OneDrive\Documentos\Projetos\Container Images\Ansible Core"
+  -f "C:\Users\danie\OneDrive\Documentos\Projetos\MeuLabN8N\container_images\ansible_core\Containerfile" `
+  "C:\Users\danie\OneDrive\Documentos\Projetos\MeuLabN8N\container_images\ansible_core"
 ```
 
 ### 4.2) Execucao pontual

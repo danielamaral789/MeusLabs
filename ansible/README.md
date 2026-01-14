@@ -8,19 +8,19 @@ Executar Ansible em container isolado, com playbooks montados do host e sem depe
 - Container (quando persistente): `ansible`
 - Diretorio de playbooks no host: `C:\Users\danie\OneDrive\Documentos\Projetos\MeuLabN8N\Ansible`
 - Diretorio no container: `/ansible`
-- Base de build: arquivos em `C:\Users\danie\OneDrive\Documentos\Projetos\Container Images\Ansible Core`
+- Base de build: arquivos em `C:\Users\danie\OneDrive\Documentos\Projetos\MeuLabN8N\container_images\ansible_core`
 
 ## 3) Pre-requisitos
 - Podman Desktop + Podman Machine ativos
-- Arquivos do build disponiveis em `Container Images\Ansible Core`
+- Arquivos do build disponiveis em `container_images\ansible_core`
 - Playbooks salvos em `C:\Users\danie\OneDrive\Documentos\Projetos\MeuLabN8N\Ansible`
 
 ## 4) Passo a passo completo
 ### 4.1) Build da imagem
 ```powershell
 podman build -t ansible-core `
-  -f "C:\Users\danie\OneDrive\Documentos\Projetos\Container Images\Ansible Core\Containerfile" `
-  "C:\Users\danie\OneDrive\Documentos\Projetos\Container Images\Ansible Core"
+  -f "C:\Users\danie\OneDrive\Documentos\Projetos\MeuLabN8N\container_images\ansible_core\Containerfile" `
+  "C:\Users\danie\OneDrive\Documentos\Projetos\MeuLabN8N\container_images\ansible_core"
 ```
 
 ### 4.2) Execucao pontual (container descartavel)

@@ -1,0 +1,8 @@
+---
+collections:
+  - name: ansible.posix
+  - name: community.general
+  - name: community.docker
+  # adicione o que você precisar, por exemplo:
+  # - name: community.mysql
+  # - name: azure.azcollection

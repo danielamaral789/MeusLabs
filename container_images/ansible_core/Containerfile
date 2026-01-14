@@ -1,0 +1,50 @@
+FROM debian:stable-slim
+
+# 1. Pacotes básicos
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+        python3 \
+        python3-pip \
+        python3-venv \
+        ssh \
+        git \
+        ca-certificates \
+        openssh-client \
+    && apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+# 2. Usuário não-root
+RUN useradd -m -s /bin/bash ansible
+
+USER ansible
+WORKDIR /home/ansible
+
+# 3. Virtualenv com ansible
+RUN python3 -m venv /home/ansible/.venv && \
+    /home/ansible/.venv/bin/pip install --upgrade pip && \
+    /home/ansible/.venv/bin/pip install \
+        ansible-core \
+        ansible-lint
+
+ENV PATH="/home/ansible/.venv/bin:${PATH}"
+
+# 4. SSH: só cria o diretório aqui, o conteúdo vem de volume/entrypoint
+RUN mkdir -p /home/ansible/.ssh && \
+    chmod 700 /home/ansible/.ssh
+
+# 5. Collections do Ansible
+COPY --chown=ansible:ansible requirements.yml /home/ansible/requirements.yml
+RUN ansible-galaxy collection install -r /home/ansible/requirements.yml
+
+# 6. Copia o entrypoint
+COPY --chown=ansible:ansible entrypoint.sh /home/ansible/entrypoint.sh
+RUN chmod +x /home/ansible/entrypoint.sh
+
+# 7. Diretório de trabalho para playbooks
+RUN mkdir -p /home/ansible/work
+WORKDIR /home/ansible/work
+
+# 8. ENTRYPOINT e comando padrão
+ENTRYPOINT ["/home/ansible/entrypoint.sh"]
+CMD ["/bin/bash"]
+
