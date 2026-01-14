@@ -1,0 +1,6 @@
+site_name: MeuLabN8N
+docs_dir: docs
+nav:
+  - Inicio: index.md
+  - n8n: n8n.md
+  - Ansible: ansible.md
