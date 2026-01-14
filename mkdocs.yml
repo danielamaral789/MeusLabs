@@ -4,3 +4,4 @@ nav:
   - Inicio: index.md
   - n8n: n8n.md
   - Ansible: ansible.md
+  - Mattermost: mattermost/SETUP.md

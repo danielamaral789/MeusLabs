@@ -1,0 +1,58 @@
+version: "3.8"
+
+services:
+  mm-postgres:
+    image: docker.io/postgres:16
+    container_name: mm-postgres
+    env_file:
+      - ./env/db.env
+    volumes:
+      - mm_postgres_data:/var/lib/postgresql/data
+    networks:
+      - mattermost-net
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  mattermost:
+    image: docker.io/mattermost/mattermost-team-edition:latest
+    container_name: mattermost
+    env_file:
+      - ./env/app.env
+    ports:
+      - "8065:8065"
+    volumes:
+      - mm_data:/mattermost/data
+      - mm_config:/mattermost/config
+      - mm_logs:/mattermost/logs
+      - mm_plugins:/mattermost/plugins
+      - mm_client_plugins:/mattermost/client/plugins
+      - mm_bleve:/mattermost/bleve-indexes
+    networks:
+      - mattermost-net
+    restart: unless-stopped
+    depends_on:
+      - mm-postgres
+
+networks:
+  mattermost-net:
+    name: mattermost-net
+
+volumes:
+  mm_postgres_data:
+    name: mm_postgres_data
+  mm_data:
+    name: mm_data
+  mm_config:
+    name: mm_config
+  mm_logs:
+    name: mm_logs
+  mm_plugins:
+    name: mm_plugins
+  mm_client_plugins:
+    name: mm_client_plugins
+  mm_bleve:
+    name: mm_bleve
