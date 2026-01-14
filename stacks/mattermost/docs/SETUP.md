@@ -53,31 +53,31 @@ stacks/mattermost/
 ## 6) Passo a passo completo
 ### 6.1) Subir o stack
 ```powershell
-podman compose -f .\mattermost\compose.yml up -d
+podman compose -f .\stacks\mattermost\compose.yml up -d
 ```
 
 ### 6.2) Verificar status
 ```powershell
-podman compose -f .\mattermost\compose.yml ps
+podman compose -f .\stacks\mattermost\compose.yml ps
 podman ps --filter name=mm-postgres
 podman ps --filter name=mattermost
 ```
 
 ### 6.3) Logs
 ```powershell
-podman compose -f .\mattermost\compose.yml logs -f
+podman compose -f .\stacks\mattermost\compose.yml logs -f
 podman logs mm-postgres
 podman logs mattermost
 ```
 
 ### 6.4) Parar o stack
 ```powershell
-podman compose -f .\mattermost\compose.yml down
+podman compose -f .\stacks\mattermost\compose.yml down
 ```
 
 ### 6.5) Reset completo (cuidado: apaga dados)
 ```powershell
-podman compose -f .\mattermost\compose.yml down -v
+podman compose -f .\stacks\mattermost\compose.yml down -v
 podman volume rm mm_postgres_data mm_data mm_config mm_logs mm_plugins mm_client_plugins mm_bleve
 ```
 

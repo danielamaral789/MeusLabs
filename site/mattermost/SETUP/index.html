@@ -185,23 +185,23 @@
 </ul>
 <h2 id="6-passo-a-passo-completo">6) Passo a passo completo</h2>
 <h3 id="61-subir-o-stack">6.1) Subir o stack</h3>
-<pre><code class="language-powershell">podman compose -f .\mattermost\compose.yml up -d
+<pre><code class="language-powershell">podman compose -f .\stacks\mattermost\compose.yml up -d
 </code></pre>
 <h3 id="62-verificar-status">6.2) Verificar status</h3>
-<pre><code class="language-powershell">podman compose -f .\mattermost\compose.yml ps
+<pre><code class="language-powershell">podman compose -f .\stacks\mattermost\compose.yml ps
 podman ps --filter name=mm-postgres
 podman ps --filter name=mattermost
 </code></pre>
 <h3 id="63-logs">6.3) Logs</h3>
-<pre><code class="language-powershell">podman compose -f .\mattermost\compose.yml logs -f
+<pre><code class="language-powershell">podman compose -f .\stacks\mattermost\compose.yml logs -f
 podman logs mm-postgres
 podman logs mattermost
 </code></pre>
 <h3 id="64-parar-o-stack">6.4) Parar o stack</h3>
-<pre><code class="language-powershell">podman compose -f .\mattermost\compose.yml down
+<pre><code class="language-powershell">podman compose -f .\stacks\mattermost\compose.yml down
 </code></pre>
 <h3 id="65-reset-completo-cuidado-apaga-dados">6.5) Reset completo (cuidado: apaga dados)</h3>
-<pre><code class="language-powershell">podman compose -f .\mattermost\compose.yml down -v
+<pre><code class="language-powershell">podman compose -f .\stacks\mattermost\compose.yml down -v
 podman volume rm mm_postgres_data mm_data mm_config mm_logs mm_plugins mm_client_plugins mm_bleve
 </code></pre>
 <h2 id="7-acesso-e-configuracao-inicial">7) Acesso e configuracao inicial</h2>

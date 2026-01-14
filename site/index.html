@@ -130,6 +130,7 @@
 <ul>
 <li>Podman Desktop executa o pod <code>n8n-pod</code> com <code>n8n</code> + <code>n8n-postgres</code>.</li>
 <li>Um container separado <code>ansible</code> executa playbooks montados do host.</li>
+<li>Mattermost roda em stack dedicada com Postgres proprio.</li>
 <li>Persistencia via volumes <code>n8n_data</code> e <code>n8n_pgdata</code>.</li>
 <li>Acesso local via <code>http://localhost:5678</code>.</li>
 </ul>
@@ -143,7 +144,8 @@
 <ol>
 <li>Criar volumes e pod do n8n conforme <code>docs/n8n.md</code>.</li>
 <li>Criar a imagem e o container do Ansible conforme <code>docs/ansible.md</code>.</li>
-<li>Validar acesso ao n8n em <code>http://localhost:5678</code>.</li>
+<li>Subir o Mattermost conforme <code>docs/mattermost/SETUP.md</code>.</li>
+<li>Validar acesso ao n8n em <code>http://localhost:5678</code> e ao Mattermost em <code>http://localhost:8065</code>.</li>
 </ol>
 <h2 id="5-operacao-diaria">5) Operacao diaria</h2>
 <ul>
@@ -249,5 +251,5 @@
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2026-01-14 18:42:05.453659+00:00
+Build Date UTC : 2026-01-14 18:44:33.579872+00:00
 -->

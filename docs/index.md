@@ -6,6 +6,7 @@ Consolidar a visao geral do lab, com os blocos principais (n8n, PostgreSQL e Ans
 ## 2) Arquitetura
 - Podman Desktop executa o pod `n8n-pod` com `n8n` + `n8n-postgres`.
 - Um container separado `ansible` executa playbooks montados do host.
+- Mattermost roda em stack dedicada com Postgres proprio.
 - Persistencia via volumes `n8n_data` e `n8n_pgdata`.
 - Acesso local via `http://localhost:5678`.
 
@@ -17,7 +18,8 @@ Consolidar a visao geral do lab, com os blocos principais (n8n, PostgreSQL e Ans
 ## 4) Passo a passo completo
 1. Criar volumes e pod do n8n conforme `docs/n8n.md`.
 2. Criar a imagem e o container do Ansible conforme `docs/ansible.md`.
-3. Validar acesso ao n8n em `http://localhost:5678`.
+3. Subir o Mattermost conforme `docs/mattermost/SETUP.md`.
+4. Validar acesso ao n8n em `http://localhost:5678` e ao Mattermost em `http://localhost:8065`.
 
 ## 5) Operacao diaria
 - Subir/parar o pod n8n com `podman pod start/stop n8n-pod`.
