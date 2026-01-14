@@ -27,7 +27,7 @@ Subir o Mattermost Team Edition em Podman com Postgres dedicado, rede isolada e 
 
 ## 4) Estrutura de diretorios
 ```
-mattermost/
+stacks/mattermost/
   compose.yml
   env/
     app.env
@@ -43,12 +43,12 @@ mattermost/
 - Usuario: `mmuser`
 - Senha: `et3g0Dnp11uBi4bkAHxf5FpIMv9iWnQV`
 - Database: `mattermost`
-- Arquivo: `mattermost/env/db.env`
+- Arquivo: `stacks/mattermost/env/db.env`
 
 ### 5.2) Admin do Mattermost (para criar no setup inicial)
 - Usuario: `mmadmin`
 - Senha: `Kmp4j/7hVoHKH0DDaqAHnsBKsYZmHoo5`
-- Arquivo: `mattermost/env/credentials.env`
+- Arquivo: `stacks/mattermost/env/credentials.env`
 
 ## 6) Passo a passo completo
 ### 6.1) Subir o stack
@@ -92,7 +92,7 @@ podman volume rm mm_postgres_data mm_data mm_config mm_logs mm_plugins mm_client
 ## 8) Runbook rapido (troubleshooting)
 - DB nao conecta:
   - Verifique `mm-postgres` com `podman logs mm-postgres`.
-  - Confirme `MM_SQLSETTINGS_DATASOURCE` em `mattermost/env/app.env`.
+  - Confirme `MM_SQLSETTINGS_DATASOURCE` em `stacks/mattermost/env/app.env`.
 - Porta 8065 ocupada:
   - Veja quem usa a porta no Windows e ajuste o `ports` do compose.
 - Container reiniciando:
@@ -122,5 +122,5 @@ podman volume rm mm_postgres_data mm_data mm_config mm_logs mm_plugins mm_client
 
 ### 10.3) Onde armazenar
 - Guardar os valores acima em um arquivo novo quando existir:
-  - `mattermost/env/integration.env`
+  - `stacks/mattermost/env/integration.env`
 - Registrar na documentacao quando os tokens forem criados.

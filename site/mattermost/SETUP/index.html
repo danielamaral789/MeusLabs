@@ -159,7 +159,7 @@
 <li>Podman Compose disponivel (comando <code>podman compose</code>)</li>
 </ul>
 <h2 id="4-estrutura-de-diretorios">4) Estrutura de diretorios</h2>
-<pre><code>mattermost/
+<pre><code>stacks/mattermost/
   compose.yml
   env/
     app.env
@@ -175,13 +175,13 @@
 <li>Usuario: <code>mmuser</code></li>
 <li>Senha: <code>et3g0Dnp11uBi4bkAHxf5FpIMv9iWnQV</code></li>
 <li>Database: <code>mattermost</code></li>
-<li>Arquivo: <code>mattermost/env/db.env</code></li>
+<li>Arquivo: <code>stacks/mattermost/env/db.env</code></li>
 </ul>
 <h3 id="52-admin-do-mattermost-para-criar-no-setup-inicial">5.2) Admin do Mattermost (para criar no setup inicial)</h3>
 <ul>
 <li>Usuario: <code>mmadmin</code></li>
 <li>Senha: <code>Kmp4j/7hVoHKH0DDaqAHnsBKsYZmHoo5</code></li>
-<li>Arquivo: <code>mattermost/env/credentials.env</code></li>
+<li>Arquivo: <code>stacks/mattermost/env/credentials.env</code></li>
 </ul>
 <h2 id="6-passo-a-passo-completo">6) Passo a passo completo</h2>
 <h3 id="61-subir-o-stack">6.1) Subir o stack</h3>
@@ -217,7 +217,7 @@ podman volume rm mm_postgres_data mm_data mm_config mm_logs mm_plugins mm_client
 <ul>
 <li>DB nao conecta:</li>
 <li>Verifique <code>mm-postgres</code> com <code>podman logs mm-postgres</code>.</li>
-<li>Confirme <code>MM_SQLSETTINGS_DATASOURCE</code> em <code>mattermost/env/app.env</code>.</li>
+<li>Confirme <code>MM_SQLSETTINGS_DATASOURCE</code> em <code>stacks/mattermost/env/app.env</code>.</li>
 <li>Porta 8065 ocupada:</li>
 <li>Veja quem usa a porta no Windows e ajuste o <code>ports</code> do compose.</li>
 <li>Container reiniciando:</li>
@@ -251,7 +251,7 @@ podman volume rm mm_postgres_data mm_data mm_config mm_logs mm_plugins mm_client
 <h3 id="103-onde-armazenar">10.3) Onde armazenar</h3>
 <ul>
 <li>Guardar os valores acima em um arquivo novo quando existir:</li>
-<li><code>mattermost/env/integration.env</code></li>
+<li><code>stacks/mattermost/env/integration.env</code></li>
 <li>Registrar na documentacao quando os tokens forem criados.</li>
 </ul></div>
             </div>

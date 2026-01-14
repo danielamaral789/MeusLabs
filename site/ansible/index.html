@@ -132,7 +132,7 @@
 <li>Container: <code>ansible</code> (quando persistente)</li>
 <li>Playbooks no host: <code>C:\Users\danie\OneDrive\Documentos\Projetos\MeuLabN8N\Ansible</code></li>
 <li>Playbooks no container: <code>/ansible</code></li>
-<li>Build a partir de: <code>C:\Users\danie\OneDrive\Documentos\Projetos\MeuLabN8N\container_images\ansible_core</code></li>
+<li>Build a partir de: <code>C:\Users\danie\OneDrive\Documentos\Projetos\MeuLabN8N\images\ansible_core</code></li>
 </ul>
 <h3 id="integracao-n8n-ansible-conceitual-sem-dominio-externo">Integracao n8n -&gt; Ansible (conceitual, sem dominio externo)</h3>
 <ul>
@@ -150,8 +150,8 @@
 <h2 id="4-passo-a-passo-completo">4) Passo a passo completo</h2>
 <h3 id="41-build-da-imagem">4.1) Build da imagem</h3>
 <pre><code class="language-powershell">podman build -t ansible-core `
-  -f &quot;C:\Users\danie\OneDrive\Documentos\Projetos\MeuLabN8N\container_images\ansible_core\Containerfile&quot; `
-  &quot;C:\Users\danie\OneDrive\Documentos\Projetos\MeuLabN8N\container_images\ansible_core&quot;
+  -f &quot;C:\Users\danie\OneDrive\Documentos\Projetos\MeuLabN8N\images\ansible_core\Containerfile&quot; `
+  &quot;C:\Users\danie\OneDrive\Documentos\Projetos\MeuLabN8N\images\ansible_core&quot;
 </code></pre>
 <h3 id="42-execucao-pontual">4.2) Execucao pontual</h3>
 <pre><code class="language-powershell">podman run --rm -it `
